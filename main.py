@@ -35,7 +35,8 @@ from calibre_plugins.wolnelektury_source.consts import WOLNELEKTURY_ID, \
     AUTHOR_ID_REGEX, ID_REGEX
 from calibre_plugins.wolnelektury_source.worker import WorkerInput, BaseWorker
 
-from mechanize._response import response_seek_wrapper as Response
+from mechanize import response_seek_wrapper as Response
+from mechanize import HTTPError
 # pylint: enable=import-error
 
 MAX_RESULTS = 3
@@ -56,7 +57,17 @@ def access_data(browsed_page: Callable[..., Response], log: ThreadSafeLog=None):
     except etree.LxmlError as e:
         if log is not None:
             log.exception(f'Error parsing page using lxml:\n{e}')
-    # mechanize related exceptions could not be caught
+    # mechanize exceptions
+    except HTTPError as e:
+        match e.code:
+            case 404:
+                msg = f'Error: Page \"{e.url}\" could not be found.'
+            case 502:
+                msg = 'Error: Server could not respond'
+            case _:
+                raise
+        if log is not None:
+            log.exception(msg)
     finally:
         browsed_page.close()
 
@@ -211,7 +222,9 @@ class MetadataWorker(BaseWorker):
         wolnelektury_url: str = get_xml_url(wolnelektury_id)
         me: Optional[Metadata] = None
         self.log.info(f'Trying to reach book page {wolnelektury_url}')
-        with access_data(self.browser.open(wolnelektury_url, timeout=self.timeout)) as page:
+        with access_data(self.browser.open(wolnelektury_url, timeout=self.timeout),
+            self.log
+        ) as page:
             self.log.info(f'Page \'{wolnelektury_url}\' accessed and parsed')
             read_data = page.read().decode(encoding='utf-8')
             parsed_data = etree.fromstring(read_data)
@@ -239,8 +252,7 @@ class MetadataWorker(BaseWorker):
         max_covers = self.plugin.prefs['max_covers']
 
         with access_data(self.browser.open(
-            get_api_url(wolnelektury_id),
-            timeout=self.timeout)
+            get_api_url(wolnelektury_id), timeout=self.timeout), self.log
         ) as page:
             self.log.info("Parsing data for covers")
             parsed_data: dict = json.load(page)
@@ -269,7 +281,7 @@ class MetadataWorker(BaseWorker):
         available = False
         with access_data(self.browser.open_novisit(
             template_url.substitute(mode='view'),
-            timeout=self.timeout)
+            timeout=self.timeout), self.log
         ):
             available = True
         return template_url.substitute(mode='download') if available else None
