@@ -236,7 +236,7 @@ class MetadataWorker(BaseWorker):
             if len(cover_urls) != 0:
                 me.has_cover = True
                 self.plugin.cache_identifier_to_cover_url(wolnelektury_id, cover_urls)
-        self.plugin.clean_downloaded_metadata(me)
+            self.plugin.clean_downloaded_metadata(me)
 
         return me
 
