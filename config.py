@@ -136,11 +136,12 @@ class ConfigWidget(DefaultConfigWidget):
                 widget.setAcceptDrops(False)
                 widget.setDropIndicatorShown(True)
                 widget.setDragDropMode(QAbstractItemView.DragDropMode.InternalMove)
+
                 max_width = 0
                 for value in COVER_NAMES.values():
                     if (width := len(value)) > max_width:
                         max_width = width
-                widget.setMaximumSize(10*max_width, 25*len(COVER_NAMES))
+                widget.setMaximumSize(10*max_width, 20*len(COVER_NAMES))
 
                 for item in val:
                     widget.addItem(CoverItem(CoverType(item, COVER_NAMES[item]), widget))

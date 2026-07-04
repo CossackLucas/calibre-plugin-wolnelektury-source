@@ -141,7 +141,7 @@ class WolneLekturySource(Source):
         for regex in WOLNELEKTURY_ID_REGEX:
             search_result = regex.search(url)
             if search_result is not None:
-                return search_result.group(3)
+                return search_result.group(1)
 
         return None
 

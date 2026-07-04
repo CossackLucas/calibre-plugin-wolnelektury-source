@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 12:43+0200\n"
+"POT-Creation-Date: 2026-07-04 17:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: config.py:35
@@ -54,42 +54,21 @@ msgstr ""
 msgid "Maximal number of covers to download from the site (up to {0:d})"
 msgstr ""
 
-#: consts.py:38
+#: consts.py:39
 msgid "Download metadata and covers from site wolnelektury.pl"
 msgstr ""
 
-#: consts.py:40
-msgid "Calibre"
-msgstr ""
-
 #: consts.py:42
-msgid "Plugin version"
+#, python-brace-format
+msgid ""
+"Calibre: {calibre_version} • Plugin version: {plugin_version} • Please "
+"report bugs through the {mobileread_link}MobileRead{closing_link} forum or "
+"{github_link}GitHub{closing_link}."
 msgstr ""
 
-#: consts.py:44
-msgid "Please report bugs through the "
-msgstr ""
-
-#: consts.py:46
-msgid "MobileRead"
-msgstr ""
-
-#: consts.py:46
-msgid " forum or "
-msgstr ""
-
-#: consts.py:47
-msgid "GitHub"
-msgstr ""
-
-#: consts.py:48
-msgid "."
-msgstr ""
-
-#: consts.py:48
-msgid "Warning"
-msgstr ""
-
-#: consts.py:49
-msgid "ISBN could be pointing to different file format edition of the book."
+#: consts.py:51
+#, python-brace-format
+msgid ""
+"{open_bold}Warning{closing_bold}: ISBN could be pointing to different file "
+"format edition of the book."
 msgstr ""
