@@ -15,16 +15,11 @@ from calibre.ebooks.metadata.sources.base import Source, Option
 from calibre.ebooks.metadata.book.base import Metadata
 from calibre.utils.logging import ThreadSafeLog
 
-from calibre_plugins.wolnelektury_source.main import check_site_for_books, \
-    MetadataWorker, WorkerInput
-from calibre_plugins.wolnelektury_source.config import config
-from calibre_plugins.wolnelektury_source.config import ConfigWidget
-from calibre_plugins.wolnelektury_source.consts import PLUGIN_VERSION
-from calibre_plugins.wolnelektury_source.consts import PLUGIN_NAME
-from calibre_plugins.wolnelektury_source.consts import WOLNELEKTURY_ID
-from calibre_plugins.wolnelektury_source.consts import WOLNELEKTURY_ID_REGEX
-from calibre_plugins.wolnelektury_source.consts import PLUGIN_DESCRIPTION
-from calibre_plugins.wolnelektury_source.consts import CONFIG_HELP_MESSAGE
+from calibre_plugins.wolnelektury_source.main import check_site_for_books, MetadataWorker, \
+    WorkerInput
+from calibre_plugins.wolnelektury_source.config import config, ConfigWidget
+from calibre_plugins.wolnelektury_source.consts import PLUGIN_VERSION, PLUGIN_NAME, \
+    WOLNELEKTURY_ID, WOLNELEKTURY_ID_REGEX, PLUGIN_DESCRIPTION, CONFIG_HELP_MESSAGE
 # pylint: enable=import-error
 
 class WolneLekturySource(Source):
@@ -33,10 +28,10 @@ class WolneLekturySource(Source):
     '''
     # Fields used by importer can't have type annotations!
     # Because of it, it can't identify the plugin
-    name = PLUGIN_NAME
+    name: str = PLUGIN_NAME
     author = 'Łukasz Kozak'
-    description = PLUGIN_DESCRIPTION
-    version = PLUGIN_VERSION
+    description: str = PLUGIN_DESCRIPTION
+    version: tuple[int, int, int] = PLUGIN_VERSION
     # 1.0.0 checked with 6.0.0
     # lowering it further would require leaving behind type annotations
     # lowering from 3.9 to 3.7 could be achieved with importing __future__.annotations
@@ -57,10 +52,10 @@ class WolneLekturySource(Source):
     supports_gzip_transfer_encoding = False
     ignore_ssl_errors = False
     cached_cover_url_is_reliable = True
-    config_help_message = CONFIG_HELP_MESSAGE
+    config_help_message: str = CONFIG_HELP_MESSAGE
     can_get_multiple_covers = True
     prefer_results_with_isbn = False
-    options = config.get_options()
+    options: list[Option] = config.get_options()
 
     @property
     def prefs(self) -> dict:
