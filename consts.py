@@ -3,8 +3,6 @@ Source of main data
 '''
 import re
 
-from typing import Final
-
 # pylint: disable=import-error
 from calibre.constants import numeric_version
 
@@ -23,13 +21,13 @@ except NameError:
     pass
 # pylint: enable=undefined-variable
 
-PLUGIN_VERSION: Final[tuple] = (1, 0, 1)
-PLUGIN_NAME: Final[str] = 'WolneLektury'
-WOLNELEKTURY_ID: Final[str] = 'wolnelektury'
+PLUGIN_VERSION = (1, 0, 1)
+PLUGIN_NAME = 'WolneLektury'
+WOLNELEKTURY_ID = 'wolnelektury'
 
-ID_REGEX: re.Pattern = re.compile(r'/katalog/lektura/([a-z\-]+)/')
-AUTHOR_ID_REGEX: re.Pattern = re.compile(r'/katalog/autor/([a-z\-]+)/')
-WOLNELEKTURY_ID_REGEX: list[re.Pattern] = [
+ID_REGEX = re.compile(r'/katalog/lektura/([a-z\-]+)/')
+AUTHOR_ID_REGEX = re.compile(r'/katalog/autor/([a-z\-]+)/')
+WOLNELEKTURY_ID_REGEX = [
     re.compile(r'wolnelektury.pl\/katalog\/lektura\/([a-z\-]+)'),
     re.compile(r'wolnelektury.pl\/media\/book\/cover\/([a-z\-]+).jpg'),
     re.compile(r'wolnelektury.pl\/media\/book\/cover_simple\/([a-z\-]+)_[a-zA-Z0-9]+.jpg'
@@ -38,7 +36,7 @@ WOLNELEKTURY_ID_REGEX: list[re.Pattern] = [
 
 PLUGIN_DESCRIPTION = _('Download metadata and covers from site wolnelektury.pl')
 
-CONFIG_HELP_MESSAGE: Final[str] = '<p>' + \
+CONFIG_HELP_MESSAGE = '<p>' + \
     _('Calibre: {calibre_version} • Plugin version: {plugin_version}' + \
         ' • Please report bugs through the {mobileread_link}MobileRead{closing_link}' + \
         ' forum or {github_link}GitHub{closing_link}.').format(

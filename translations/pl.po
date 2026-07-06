@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 17:12+0200\n"
-"PO-Revision-Date: 2026-07-04 17:13+0200\n"
+"POT-Creation-Date: 2026-07-06 16:43+0200\n"
+"PO-Revision-Date: 2026-07-06 17:13+0200\n"
 "Last-Translator: Łukasz Kozak <lakis.kozak@gmail.com>\n"
 "Language-Team: \n"
 "Language: pl\n"
@@ -58,11 +58,11 @@ msgstr "Maksymalna liczba okładek do pobrania"
 msgid "Maximal number of covers to download from the site (up to {0:d})"
 msgstr "Maksymalna liczba okładek do pobrania z portalu (do {0:d})"
 
-#: consts.py:39
+#: consts.py:37
 msgid "Download metadata and covers from site wolnelektury.pl"
 msgstr "Pobieranie metadanych i okładek z portalu wolnelektury.pl"
 
-#: consts.py:42
+#: consts.py:40
 #, python-brace-format
 msgid ""
 "Calibre: {calibre_version} • Plugin version: {plugin_version} • Please "
@@ -73,7 +73,7 @@ msgstr ""
 "zgłaszać przez forum {mobileread_link}MobileRead{closing_link} lub na "
 "{github_link}GitHubie{closing_link}."
 
-#: consts.py:51
+#: consts.py:49
 #, python-brace-format
 msgid ""
 "{open_bold}Warning{closing_bold}: ISBN could be pointing to different file "

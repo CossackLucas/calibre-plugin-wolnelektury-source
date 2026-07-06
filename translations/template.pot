@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 17:12+0200\n"
+"POT-Creation-Date: 2026-07-06 16:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,11 +54,11 @@ msgstr ""
 msgid "Maximal number of covers to download from the site (up to {0:d})"
 msgstr ""
 
-#: consts.py:39
+#: consts.py:37
 msgid "Download metadata and covers from site wolnelektury.pl"
 msgstr ""
 
-#: consts.py:42
+#: consts.py:40
 #, python-brace-format
 msgid ""
 "Calibre: {calibre_version} • Plugin version: {plugin_version} • Please "
@@ -66,7 +66,7 @@ msgid ""
 "{github_link}GitHub{closing_link}."
 msgstr ""
 
-#: consts.py:51
+#: consts.py:49
 #, python-brace-format
 msgid ""
 "{open_bold}Warning{closing_bold}: ISBN could be pointing to different file "
