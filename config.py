@@ -62,9 +62,12 @@ class PluginConfig:
             self.__config.pop('prefered_cover')
             correction = True
         # filling the cover list, if plugin is updated
+        val = self.__config.get('prefered_covers')
+        if val is None:
+            return
         keys = set(COVER_NAMES.keys())
         temp = []
-        val = self.__config['prefered_covers']
+
         for item in val:
             if item not in keys:
                 temp.append(item)
